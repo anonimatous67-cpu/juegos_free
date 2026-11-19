@@ -1,0 +1,74 @@
+  body { font-family: 'Outfit', system-ui, sans-serif; background-color: #070212; color: #fff; overflow: hidden; }
+  
+  /* ===== Fondos Ambientales Neón / Malla ===== */
+  .bg-brand { 
+    background: radial-gradient(circle at 50% 20%, #310b61 0%, #180536 45%, #080214 100%);
+  }
+  .stage-bg { 
+    background: 
+      radial-gradient(at 15% 15%, rgba(123, 31, 162, 0.45) 0px, transparent 55%),
+      radial-gradient(at 85% 20%, rgba(27, 38, 110, 0.45) 0px, transparent 55%),
+      radial-gradient(at 50% 80%, rgba(216, 27, 96, 0.3) 0px, transparent 65%),
+      radial-gradient(at 50% 25%, rgba(67, 24, 138, 0.7) 0px, transparent 50%),
+      #060212;
+  }
+
+  .btn3d { box-shadow: 0 6px 0 rgba(0,0,0,.4), 0 10px 25px rgba(0,0,0,.3); transition: transform .08s, filter .08s; }
+  .btn3d:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0,0,0,.4), 0 5px 10px rgba(0,0,0,.3); filter: brightness(.95); }
+  .pop { animation: pop .4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
+  @keyframes pop { 0% { transform: scale(.5); opacity: 0 } 100% { transform: scale(1); opacity: 1 } }
+  .bar { transition: height .6s ease, width .2s linear; }
+  input[type=range] { width: 100%; height: 36px; accent-color: #9d4edd; }
+
+  /* ===== Personajes 3D y Animaciones ===== */
+  .av-wrap { display: inline-block; transform-origin: 50% 90%; filter: drop-shadow(0 14px 22px rgba(0,0,0,.6)); }
+  .blink { transform-box: fill-box; transform-origin: center; animation: blink 4.5s infinite; }
+  @keyframes blink { 0%,92%,100% { transform: scaleY(1) } 95% { transform: scaleY(.1) } }
+  .av-an-0 { animation: av-bounce 1.2s ease-in-out infinite; }
+  @keyframes av-bounce { 0%,100% { transform: translateY(0) scale(1,1) } 20% { transform: translateY(0) scale(1.08,.92) } 50% { transform: translateY(-18%) scale(.95,1.05) } 80% { transform: translateY(0) scale(1.06,.94) } }
+  .av-an-1 { animation: av-float 3s ease-in-out infinite; }
+  @keyframes av-float { 0%,100% { transform: translateY(0) rotate(-4deg) } 50% { transform: translateY(-12%) rotate(4deg) } }
+  .av-an-2 { animation: av-wiggle .9s ease-in-out infinite; }
+  @keyframes av-wiggle { 0%,100% { transform: rotate(-10deg) } 50% { transform: rotate(10deg) } }
+  .av-an-3 { animation: av-spin 3s ease-in-out infinite; }
+  @keyframes av-spin { 0%,55% { transform: perspective(400px) rotateY(0) } 100% { transform: perspective(400px) rotateY(360deg) } }
+  .av-an-4 { animation: av-beat 1.1s ease-in-out infinite; }
+  @keyframes av-beat { 0%,60%,100% { transform: scale(1) } 15% { transform: scale(1.15) } 30% { transform: scale(1) } 45% { transform: scale(1.1) } }
+  .av-an-5 { animation: av-jelly 1.4s ease-in-out infinite; }
+  @keyframes av-jelly { 0%,100% { transform: scale(1,1) } 25% { transform: scale(.85,1.15) } 50% { transform: scale(1.15,.85) } 75% { transform: scale(.95,1.05) } }
+  
+  /* ===== Cristal y Tarjetas ===== */
+  .glass { background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55); }
+  .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.14); }
+
+  /* ===== Cara triste ===== */
+  .av-wrap.av-sad { filter: saturate(.3) brightness(.8) drop-shadow(0 8px 14px rgba(0,0,0,.5)); }
+  .av-an-sad { animation: av-sad 3.2s ease-in-out infinite; }
+  @keyframes av-sad { 0%,100% { transform: rotate(-3deg) translateY(0) scale(1,1) } 50% { transform: rotate(3deg) translateY(4%) scale(1,.95) } }
+  .tear { animation: tear 2.2s ease-in infinite; }
+  @keyframes tear { 0% { transform: translateY(-5px); opacity: 0 } 25% { opacity: 1 } 100% { transform: translateY(18px); opacity: 0 } }
+
+  /* ===== Fondos animados y efectos ===== */
+  .bubbles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+  .bubbles i { position: absolute; bottom: -140px; left: var(--l); width: var(--s); height: var(--s); border-radius: 50%; background: radial-gradient(circle at 35% 35%, rgba(255,255,255,.25), rgba(255,255,255,.02)); animation: rise var(--d) linear infinite; animation-delay: var(--dl); }
+  @keyframes rise { to { transform: translateY(-130vh) translateX(40px); } }
+  .confetti { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+  .confetti i { position: absolute; top: -30px; left: var(--l); width: 12px; height: 18px; border-radius: 3px; background: var(--c); animation: fall var(--d) linear infinite; animation-delay: var(--dl); }
+  @keyframes fall { to { transform: translateY(115vh) rotate(720deg); } }
+  .toast { position: fixed; left: 50%; z-index: 60; animation: toast 2.8s ease forwards; white-space: nowrap; }
+  @keyframes toast { 0% { opacity: 0; transform: translate(-50%, -40px) scale(.9) } 15%,82% { opacity: 1; transform: translate(-50%, 0) scale(1) } 100% { opacity: 0; transform: translate(-50%, -20px) scale(.9) } }
+  .slide-up { animation: slideUp .45s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(30px) } to { opacity: 1; transform: none } }
+  .slide-in { animation: slideIn .45s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  @keyframes slideIn { from { opacity: 0; transform: translateX(-40px) } to { opacity: 1; transform: none } }
+  .dots::after { content: ''; animation: dots 1.4s steps(4, end) infinite; }
+  @keyframes dots { 0% { content: '' } 25% { content: '.' } 50% { content: '..' } 75% { content: '...' } }
+  .card-lift { transition: transform .25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .25s cubic-bezier(0.16, 1, 0.3, 1); }
+  .card-lift:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(157,78,221,.3); }
+  .glow { animation: glow 2s ease-in-out infinite; }
+  @keyframes glow { 0%,100% { box-shadow: 0 6px 0 #0f509e, 0 0 0 rgba(19,104,206,0) } 50% { box-shadow: 0 6px 0 #0f509e, 0 0 35px rgba(114,9,183,.9) } }
+  
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.45); }
